@@ -12,10 +12,10 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 className="text-center mb-16"
             >
-                <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mb-6 drop-shadow-2xl">
+                <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-500 dark:to-pink-500 mb-6 drop-shadow-sm dark:drop-shadow-2xl">
                     World Time Explorer
                 </h1>
-                <p className="text-xl text-gray-300 max-w-2xl mx-auto font-light">
+                <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-light">
                     Track time across the globe and plan your next journey with precision.
                 </p>
             </motion.div>

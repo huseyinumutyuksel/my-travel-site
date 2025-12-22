@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
+import data from '../data/data.json';
 
 type Language = 'en' | 'tr';
 
@@ -17,11 +18,10 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
         setLang((prev) => (prev === 'en' ? 'tr' : 'en'));
     };
 
-    // Simple translation helper placeholder - will be connected to data later or basic keys
-    const t = (text: string) => {
-        // Ideally we would look up translations here. 
-        // For now returning the text or handling specific keys if we implement full dict.
-        return text;
+    const t = (key: string) => {
+        // @ts-expect-error - simple data lookup
+        const translation = data.translations[lang]?.[key];
+        return translation || key;
     };
 
     return (
