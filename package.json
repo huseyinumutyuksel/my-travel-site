@@ -1,6 +1,7 @@
 {
   "name": "my-travel-site",
   "private": true,
+  "homepage": "https://huseyinumutyuksel.github.io/my-travel-site/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
