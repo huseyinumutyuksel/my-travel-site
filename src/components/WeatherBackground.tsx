@@ -15,11 +15,11 @@ const WeatherBackground: React.FC = () => {
         const newElements: React.ReactNode[] = [];
 
         if (weather === 'rainy') {
-            // Heavy Rain Drops
-            for (let i = 0; i < 500; i++) {
+            // Heavy Background Rain (-10s delay start for instant effect)
+            for (let i = 0; i < 400; i++) {
                 const left = Math.random() * 100;
-                const duration = Math.random() * 0.5 + 0.3; // Faster
-                const delay = Math.random() * 2;
+                const duration = Math.random() * 0.5 + 0.3;
+                const delay = Math.random() * -2; // Negative delay! start mid-animation
                 newElements.push(
                     <div
                         key={`rain-${i}`}
@@ -28,38 +28,74 @@ const WeatherBackground: React.FC = () => {
                             left: `${left}%`,
                             animationDuration: `${duration}s`,
                             animationDelay: `${delay}s`,
-                            opacity: Math.random() * 0.5 + 0.3
+                            opacity: Math.random() * 0.5 + 0.3,
+                            zIndex: 1 // Background
                         }}
                     />
                 );
             }
-            // Splashes at the bottom
+            // Foreground Rain (Fast & Large)
             for (let i = 0; i < 50; i++) {
                 const left = Math.random() * 100;
-                const delay = Math.random() * 2;
+                const duration = Math.random() * 0.3 + 0.2;
+                newElements.push(
+                    <div
+                        key={`rain-fg-${i}`}
+                        className="rain-drop"
+                        style={{
+                            left: `${left}%`,
+                            height: '100px', // Bigger
+                            width: '3px',
+                            animationDuration: `${duration}s`,
+                            animationDelay: `${Math.random() * -2}s`,
+                            opacity: 0.8,
+                            zIndex: 50 // Over cards
+                        }}
+                    />
+                );
+            }
+            // Rain on Glass Effect (Trickle)
+            for (let i = 0; i < 30; i++) {
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                newElements.push(
+                    <div
+                        key={`glass-${i}`}
+                        className="rain-on-glass"
+                        style={{
+                            top: `${top}%`,
+                            left: `${left}%`,
+                            width: `${Math.random() * 10 + 5}px`,
+                            height: `${Math.random() * 10 + 5}px`,
+                            animationDelay: `${Math.random() * 5}s`,
+                            zIndex: 60 // Topmost
+                        }}
+                    />
+                );
+            }
+            // Splashes
+            for (let i = 0; i < 50; i++) {
                 newElements.push(
                     <div
                         key={`splash-${i}`}
                         className="rain-splash"
                         style={{
-                            left: `${left}%`,
-                            animationDelay: `${delay}s`
+                            left: `${Math.random() * 100}%`,
+                            animationDelay: `${Math.random() * 2}s`
                         }}
                     />
                 );
             }
-            // Lightning Flash
             newElements.push(<div key="lightning" className="lightning-flash" />);
         }
 
         else if (weather === 'snowy') {
-            // High Density Snow
-            for (let i = 0; i < 300; i++) {
+            // Background Snow
+            for (let i = 0; i < 200; i++) {
                 const left = Math.random() * 100;
                 const duration = Math.random() * 10 + 5;
-                const delay = Math.random() * 10;
-                const size = Math.random() * 8 + 3;
-                const blur = Math.random() * 2;
+                const delay = Math.random() * -10; // Start instantly
+                const size = Math.random() * 5 + 3;
                 newElements.push(
                     <div
                         key={`snow-${i}`}
@@ -69,76 +105,90 @@ const WeatherBackground: React.FC = () => {
                             fontSize: `${size}px`,
                             animationDuration: `${duration}s`,
                             animationDelay: `${delay}s`,
-                            filter: `blur(${blur}px)`,
-                            zIndex: Math.random() > 0.8 ? 60 : 1 // Some snow in front
+                            zIndex: 1
                         }}
                     >
                         ❄
                     </div>
                 );
             }
-            // Accumulation
+            // Foreground Big Flakes
+            for (let i = 0; i < 50; i++) {
+                const left = Math.random() * 100;
+                const duration = Math.random() * 5 + 3;
+                const delay = Math.random() * -5;
+                newElements.push(
+                    <div
+                        key={`snow-fg-${i}`}
+                        className="snowflake"
+                        style={{
+                            left: `${left}%`,
+                            fontSize: `${Math.random() * 20 + 10}px`, // Huge
+                            animationDuration: `${duration}s`,
+                            animationDelay: `${delay}s`,
+                            filter: 'blur(2px)',
+                            zIndex: 50 // Over cards
+                        }}
+                    >
+                        ❄
+                    </div>
+                );
+            }
             newElements.push(<div key="pile" className="snow-pile" />);
+            newElements.push(<div key="frost" className="frost-vignette" />);
         }
 
         else if (weather === 'sunny') {
-            // Intense glow elements
             newElements.push(<div key="sun-core" className="sun-core" />);
             newElements.push(<div key="sun-rays" className="sun-ray" />);
+            newElements.push(<div key="sun-glare" className="sun-glare-overlay" />);
 
-            // Random lens flares
             for (let i = 0; i < 3; i++) {
-                const top = Math.random() * 80 + 10;
-                const left = Math.random() * 80 + 10;
                 newElements.push(
                     <div
                         key={`flare-${i}`}
                         className="lens-flare"
                         style={{
-                            top: `${top}%`,
-                            left: `${left}%`,
-                            animationDelay: `${i * 2}s`
+                            top: `${Math.random() * 80 + 10}%`,
+                            left: `${Math.random() * 80 + 10}%`,
+                            animationDelay: `${i * 2}s`,
+                            zIndex: 40
                         }}
                     />
                 );
             }
-
         }
 
         else if (weather === 'foggy') {
-            // Multi-layered thick fog
-            newElements.push(<div key="fog1" className="fog-layer" style={{ animationDuration: '30s', opacity: 0.8 }} />);
-            newElements.push(<div key="fog2" className="fog-layer" style={{ animationDuration: '45s', top: '10%', left: '-20%', animationDirection: 'reverse' }} />);
-            newElements.push(<div key="fog3" className="fog-layer" style={{ animationDuration: '60s', top: '30%', opacity: 0.6 }} />);
+            newElements.push(<div key="fog1" className="fog-layer" style={{ animationDuration: '30s', opacity: 0.8, animationDelay: '-10s' }} />);
+            newElements.push(<div key="fog2" className="fog-layer" style={{ animationDuration: '45s', top: '10%', left: '-20%', animationDirection: 'reverse', animationDelay: '-15s' }} />);
+            newElements.push(<div key="fog3" className="fog-layer" style={{ animationDuration: '60s', top: '30%', opacity: 0.6, animationDelay: '-5s' }} />);
             newElements.push(<div key="fog-overlay" className="fog-overlay" />);
+            newElements.push(<div key="condensation" className="condensation-overlay" />);
         }
 
         else if (weather === 'cloudy') {
-            // Lots of fluffy clouds
             for (let i = 0; i < 20; i++) {
-                const top = Math.random() * 60;
-                const width = Math.random() * 400 + 200;
-                const height = Math.random() * 150 + 80;
-                const duration = Math.random() * 40 + 40;
-                const delay = Math.random() * -40;
-                const isForeground = Math.random() > 0.7; // 30% chance to be over content
+                const isForeground = Math.random() > 0.6;
+                const delay = Math.random() * -60; // Start widely distributed everywhere
 
                 newElements.push(
                     <div
                         key={`cloud-${i}`}
                         className="cloud"
                         style={{
-                            top: `${top}%`,
-                            width: `${width}px`,
-                            height: `${height}px`,
-                            animationDuration: `${duration}s`,
+                            top: `${Math.random() * 60}%`,
+                            width: `${Math.random() * 400 + 200}px`,
+                            height: `${Math.random() * 150 + 80}px`,
+                            animationDuration: `${Math.random() * 40 + 40}s`,
                             animationDelay: `${delay}s`,
-                            zIndex: isForeground ? 50 : 1, // Z-Index layering
+                            zIndex: isForeground ? 50 : 1,
                             opacity: isForeground ? 0.9 : 0.6
                         }}
                     />
                 );
             }
+            newElements.push(<div key="shadows" className="cloud-shadow-overlay" />);
         }
 
         setElements(newElements);
@@ -167,9 +217,8 @@ const WeatherBackground: React.FC = () => {
     if (!weather) return null;
 
     return (
-        <React.Fragment> {/* Use Fragment to avoid single wrapper z-index constraints if needed, but here fixed works */}
+        <React.Fragment>
             <div className={getContainerStyles()}>
-                {/* Dark overlay for better text contrast if needed */}
                 {(weather === 'rainy' || weather === 'foggy') && <div className="absolute inset-0 bg-black/40 z-0" />}
                 {elements}
             </div>
