@@ -44,7 +44,7 @@
             "id": "dubai",
             "name": "Dubai",
             "timezone": "Asia/Dubai",
-            "image": "https://images.unsplash.com/photo-1512453979798-5ea904acfb5a?q=80&w=800&auto=format&fit=crop",
+            "image": "https://images.unsplash.com/photo-1518684079-3c830dcef6c0?q=80&w=800&auto=format&fit=crop",
             "description": {
                 "en": "City of gold and skyscrapers.",
                 "tr": "Altın ve gökdelenler şehri."
@@ -102,6 +102,7 @@
     "translations": {
         "en": {
             "appTitle": "AeroTime",
+            "heroSubtitle": "Track time across the globe and plan your next journey with precision.",
             "calculate": "Calculate",
             "landedAt": "Landed At",
             "origin": "Origin",
@@ -112,6 +113,7 @@
         },
         "tr": {
             "appTitle": "AeroTime",
+            "heroSubtitle": "Dünya genelindeki saati takip edin ve bir sonraki yolculuğunuzu planlayın.",
             "calculate": "Hesapla",
             "landedAt": "İniş Saati",
             "origin": "Kalkış Yeri",
