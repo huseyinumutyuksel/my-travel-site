@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { useWeather } from '../context/WeatherContext';
 
 interface ClockCardProps {
     city: {
@@ -8,11 +9,20 @@ interface ClockCardProps {
         name: string;
         timezone: string;
         image: string;
+        weather?: {
+            condition: string;
+            temp: string;
+            description: {
+                en: string;
+                tr: string;
+            };
+        };
     };
 }
 
 const ClockCard: React.FC<ClockCardProps> = ({ city }) => {
     const { lang } = useLanguage();
+    const { setWeather } = useWeather();
     const [time, setTime] = useState<string>('');
     const [date, setDate] = useState<string>('');
 
@@ -45,6 +55,16 @@ const ClockCard: React.FC<ClockCardProps> = ({ city }) => {
         return () => clearInterval(interval);
     }, [city.timezone, lang]);
 
+    const handleMouseEnter = () => {
+        if (city.weather?.condition) {
+            setWeather(city.weather.condition as any);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        setWeather(null);
+    };
+
     return (
         <motion.div
             variants={{
@@ -52,6 +72,8 @@ const ClockCard: React.FC<ClockCardProps> = ({ city }) => {
                 visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }
             }}
             whileHover={{ y: -10, transition: { duration: 0.2 } }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             className="relative overflow-hidden rounded-2xl h-64 w-full shadow-lg group cursor-pointer bg-gray-900 border border-transparent dark:border-white/10"
         >
             <div
@@ -67,8 +89,18 @@ const ClockCard: React.FC<ClockCardProps> = ({ city }) => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
                 >
-                    <h3 className="text-2xl font-bold text-white mb-1 shadow-black drop-shadow-md">{city.name}</h3>
-                    <div className="flex flex-col">
+                    <div className="flex justify-between items-end">
+                        <h3 className="text-2xl font-bold text-white mb-1 shadow-black drop-shadow-md">{city.name}</h3>
+                        {/* Weather Badge */}
+                        {city.weather && (
+                            <div className="flex flex-col items-end text-white/90">
+                                <span className="text-xl font-bold">{city.weather.temp}</span>
+                                <span className="text-xs uppercase tracking-wider opacity-80">{city.weather.description[lang]}</span>
+                            </div>
+                        )}
+                    </div>
+
+                    <div className="flex flex-col mt-2">
                         <span className="text-3xl font-mono text-cyan-300 font-bold drop-shadow-md tracking-wider">
                             {time}
                         </span>
