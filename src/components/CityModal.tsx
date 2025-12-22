@@ -66,8 +66,12 @@ const CityModal: React.FC<CityModalProps> = ({ isOpen, onClose, city, activates 
                                                 <span className="text-xs font-bold uppercase tracking-wider text-purple-500 mb-1 block">
                                                     Month {act.month}
                                                 </span>
-                                                <h4 className="font-bold text-gray-900 dark:text-white mb-1">{act.event}</h4>
-                                                <p className="text-sm text-gray-500 dark:text-gray-400">{act.description}</p>
+                                                <h4 className="font-bold text-gray-900 dark:text-white mb-1">
+                                                    {act.event[lang] || act.event.en}
+                                                </h4>
+                                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                                    {act.description[lang] || act.description.en}
+                                                </p>
                                             </div>
                                         ))}
                                     </div>

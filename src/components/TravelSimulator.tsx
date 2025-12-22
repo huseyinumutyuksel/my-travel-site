@@ -135,8 +135,12 @@ const TravelSimulator: React.FC = () => {
                                 <div className="space-y-3">
                                     {result.events.map((ev, i) => (
                                         <div key={i} className="bg-white dark:bg-black/40 p-3 rounded-lg flex flex-col shadow-sm dark:shadow-none border border-gray-100 dark:border-transparent">
-                                            <span className="font-bold text-cyan-700 dark:text-cyan-200">{ev.event}</span>
-                                            <span className="text-sm text-gray-600 dark:text-gray-400">{ev.description}</span>
+                                            <span className="font-bold text-cyan-700 dark:text-cyan-200">
+                                                {ev.event[lang] || ev.event.en}
+                                            </span>
+                                            <span className="text-sm text-gray-600 dark:text-gray-400">
+                                                {ev.description[lang] || ev.description.en}
+                                            </span>
                                         </div>
                                     ))}
                                 </div>

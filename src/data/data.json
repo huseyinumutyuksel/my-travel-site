@@ -65,74 +65,146 @@
         {
             "cityId": "tokyo",
             "month": 3,
-            "event": "Cherry Blossom Season",
-            "description": "Sakura blooms all over the city."
+            "event": {
+                "en": "Cherry Blossom Season",
+                "tr": "Kiraz Çiçeği Mevsimi"
+            },
+            "description": {
+                "en": "Sakura blooms all over the city.",
+                "tr": "Sakura tüm şehirde açmakta."
+            }
         },
         {
             "cityId": "tokyo",
             "month": 4,
-            "event": "Cherry Blossom Season",
-            "description": "Sakura blooms all over the city."
+            "event": {
+                "en": "Cherry Blossom Season",
+                "tr": "Kiraz Çiçeği Mevsimi"
+            },
+            "description": {
+                "en": "Sakura blooms all over the city.",
+                "tr": "Sakura tüm şehirde açmakta."
+            }
         },
         {
             "cityId": "new_york",
             "month": 11,
-            "event": "Thanksgiving Parade",
-            "description": "Macy's Thanksgiving Day Parade."
+            "event": {
+                "en": "Thanksgiving Parade",
+                "tr": "Şükran Günü Geçit Töreni"
+            },
+            "description": {
+                "en": "Macy's Thanksgiving Day Parade.",
+                "tr": "Macy's Şükran Günü töreni."
+            }
         },
         {
             "cityId": "new_york",
             "month": 12,
-            "event": "New Year's Eve",
-            "description": "Ball drop at Times Square."
+            "event": {
+                "en": "New Year's Eve",
+                "tr": "Yılbaşı Gecesi"
+            },
+            "description": {
+                "en": "Ball drop at Times Square.",
+                "tr": "Times Meydanı'nda top düşüşü."
+            }
         },
         {
             "cityId": "dubai",
             "month": 1,
-            "event": "Dubai Shopping Festival",
-            "description": "Massive sales and events."
+            "event": {
+                "en": "Dubai Shopping Festival",
+                "tr": "Dubai Alışveriş Festivali"
+            },
+            "description": {
+                "en": "Massive sales and events.",
+                "tr": "Devasa indirimler ve etkinlikler."
+            }
         },
         {
             "cityId": "dubai",
             "month": 12,
-            "event": "Winter Festival",
-            "description": "Festive markets and celebrations."
+            "event": {
+                "en": "Winter Festival",
+                "tr": "Kış Festivali"
+            },
+            "description": {
+                "en": "Festive markets and celebrations.",
+                "tr": "Festival pazarları ve kutlamalar."
+            }
         },
         {
             "cityId": "istanbul",
             "month": 4,
-            "event": "Tulip Festival",
-            "description": "Millions of tulips across parks."
+            "event": {
+                "en": "Tulip Festival",
+                "tr": "Lale Festivali"
+            },
+            "description": {
+                "en": "Millions of tulips across parks.",
+                "tr": "Parklarda milyonlarca lale."
+            }
         },
         {
             "cityId": "istanbul",
             "month": 5,
-            "event": "Music Festival",
-            "description": "International music events."
+            "event": {
+                "en": "Music Festival",
+                "tr": "Müzik Festivali"
+            },
+            "description": {
+                "en": "International music events.",
+                "tr": "Uluslararası müzik etkinlikleri."
+            }
         },
         {
             "cityId": "london",
             "month": 6,
-            "event": "Wimbledon",
-            "description": "The oldest tennis tournament."
+            "event": {
+                "en": "Wimbledon",
+                "tr": "Wimbledon Tenis"
+            },
+            "description": {
+                "en": "The oldest tennis tournament.",
+                "tr": "En eski tenis turnuvası."
+            }
         },
         {
             "cityId": "london",
             "month": 12,
-            "event": "Winter Wonderland",
-            "description": "Hyde Park festive fair."
+            "event": {
+                "en": "Winter Wonderland",
+                "tr": "Kış Harikalar Diyarı"
+            },
+            "description": {
+                "en": "Hyde Park festive fair.",
+                "tr": "Hyde Park festival fuarı."
+            }
         },
         {
             "cityId": "paris",
             "month": 7,
-            "event": "Bastille Day",
-            "description": "French National Day fireworks."
+            "event": {
+                "en": "Bastille Day",
+                "tr": "Bastille Günü"
+            },
+            "description": {
+                "en": "French National Day fireworks.",
+                "tr": "Fransız Ulusal Günü havai fişekleri."
+            }
         },
         {
             "cityId": "paris",
             "month": 12,
-            "event": "Christmas Markets",
-            "description": "Traditional holiday markets."
+            "event": {
+                "en": "Christmas Markets",
+                "tr": "Noel Pazarları"
+            },
+            "description": {
+                "en": "Traditional holiday markets.",
+                "tr": "Geleneksel tatil pazarları."
+            }
         }
     ],
     "translations": {
