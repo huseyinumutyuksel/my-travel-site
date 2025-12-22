@@ -1,0 +1,32 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import ClockCard from './ClockCard';
+import data from '../data/data.json';
+
+const Hero: React.FC = () => {
+    return (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-center mb-16"
+            >
+                <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mb-6 drop-shadow-2xl">
+                    World Time Explorer
+                </h1>
+                <p className="text-xl text-gray-300 max-w-2xl mx-auto font-light">
+                    Track time across the globe and plan your next journey with precision.
+                </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {data.cities.map((city) => (
+                    <ClockCard key={city.id} city={city} />
+                ))}
+            </div>
+        </section>
+    );
+};
+
+export default Hero;

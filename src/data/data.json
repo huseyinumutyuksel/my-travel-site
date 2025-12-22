@@ -1,0 +1,124 @@
+{
+    "cities": [
+        {
+            "id": "istanbul",
+            "name": "Istanbul",
+            "timezone": "Europe/Istanbul",
+            "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?q=80&w=800&auto=format&fit=crop",
+            "description": {
+                "en": "Where East meets West.",
+                "tr": "Doğunun Batı ile buluştuğu yer."
+            }
+        },
+        {
+            "id": "new_york",
+            "name": "New York",
+            "timezone": "America/New_York",
+            "image": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=800&auto=format&fit=crop",
+            "description": {
+                "en": "The city that never sleeps.",
+                "tr": "Hiç uyumayan şehir."
+            }
+        },
+        {
+            "id": "tokyo",
+            "name": "Tokyo",
+            "timezone": "Asia/Tokyo",
+            "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=800&auto=format&fit=crop",
+            "description": {
+                "en": "Tradition meets future.",
+                "tr": "Gelenek ve gelecek bir arada."
+            }
+        },
+        {
+            "id": "london",
+            "name": "London",
+            "timezone": "Europe/London",
+            "image": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop",
+            "description": {
+                "en": "Historic and modern blend.",
+                "tr": "Tarihi ve modern karışım."
+            }
+        },
+        {
+            "id": "dubai",
+            "name": "Dubai",
+            "timezone": "Asia/Dubai",
+            "image": "https://images.unsplash.com/photo-1512453979798-5ea904acfb5a?q=80&w=800&auto=format&fit=crop",
+            "description": {
+                "en": "City of gold and skyscrapers.",
+                "tr": "Altın ve gökdelenler şehri."
+            }
+        },
+        {
+            "id": "paris",
+            "name": "Paris",
+            "timezone": "Europe/Paris",
+            "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800&auto=format&fit=crop",
+            "description": {
+                "en": "The city of lights.",
+                "tr": "Işıklar şehri."
+            }
+        }
+    ],
+    "activates": [
+        {
+            "cityId": "tokyo",
+            "month": 3,
+            "event": "Cherry Blossom Season",
+            "description": "Sakura blooms all over the city."
+        },
+        {
+            "cityId": "tokyo",
+            "month": 4,
+            "event": "Cherry Blossom Season",
+            "description": "Sakura blooms all over the city."
+        },
+        {
+            "cityId": "new_york",
+            "month": 11,
+            "event": "Thanksgiving Parade",
+            "description": "Macy's Thanksgiving Day Parade."
+        },
+        {
+            "cityId": "new_york",
+            "month": 12,
+            "event": "New Year's Eve",
+            "description": "Ball drop at Times Square."
+        },
+        {
+            "cityId": "dubai",
+            "month": 1,
+            "event": "Dubai Shopping Festival",
+            "description": "Massive sales and events."
+        },
+        {
+            "cityId": "istanbul",
+            "month": 4,
+            "event": "Tulip Festival",
+            "description": "Millions of tulips across parks."
+        }
+    ],
+    "translations": {
+        "en": {
+            "appTitle": "AeroTime",
+            "calculate": "Calculate",
+            "landedAt": "Landed At",
+            "origin": "Origin",
+            "destination": "Destination",
+            "duration": "Duration (hrs)",
+            "departureTime": "Departure Time",
+            "happeningNow": "Happening in"
+        },
+        "tr": {
+            "appTitle": "AeroTime",
+            "calculate": "Hesapla",
+            "landedAt": "İniş Saati",
+            "origin": "Kalkış Yeri",
+            "destination": "Varış Yeri",
+            "duration": "Süre (saat)",
+            "departureTime": "Kalkış Saati",
+            "happeningNow": "Şu an gerçekleşen:"
+        }
+    }
+}
