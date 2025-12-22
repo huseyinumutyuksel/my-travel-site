@@ -29,13 +29,26 @@ const Hero: React.FC = () => {
                 </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                        opacity: 1,
+                        transition: {
+                            staggerChildren: 0.15
+                        }
+                    }
+                }}
+            >
                 {data.cities.map((city) => (
                     <div key={city.id} onClick={() => handleCardClick(city)}>
                         <ClockCard city={city} />
                     </div>
                 ))}
-            </div>
+            </motion.div>
 
             <CityModal
                 isOpen={!!selectedCity}
