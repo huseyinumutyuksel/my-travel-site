@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-type WeatherType = 'sunny' | 'rainy' | 'snowy' | 'cloudy' | 'foggy' | null;
+export type WeatherType = 'sunny' | 'rainy' | 'cloudy' | 'snowy' | 'foggy' | 'clear' | null;
 
 interface WeatherContextType {
     weather: WeatherType;
